@@ -1,4 +1,4 @@
-import { Invoice } from "../model/invoice";
+import { Invoice } from "../models/invoice";
 
 
 export const invoiceData: Invoice = {

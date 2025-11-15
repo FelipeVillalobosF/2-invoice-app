@@ -1,1 +1,47 @@
-<p>invoice works!</p>
+<div>
+    <h1>Ejemplo de factura</h1>
+    <ul>
+        <li>{{invoice.id}}</li>
+        <li>{{invoice.name}}</li>
+    </ul>
+
+    <div>
+        <h2>Detalle del cliente</h2>
+        <ul>
+            <li>{{invoice.client.name}} {{invoice.client.lastName}}</li>
+            <li>{{invoice.client.address.country}}</li>
+            <li>{{invoice.client.address.city}}</li>
+            <li>{{invoice.client.address.street}} {{invoice.client.address.number}}</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Detalle de la empresa</h2>
+        <ul>
+            <li>{{invoice.company.name}}</li>
+            <li>{{invoice.company.fiscalNumber}}</li>
+        </ul>
+    </div>
+    
+    <div>
+        <h4>Detalle de la factura</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>product</th>
+                    <th>price</th>
+                    <th>quaintity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of invoice.items">
+                    <td>{{item.id}}</td>
+                    <td>{{item.product}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.quiantity}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

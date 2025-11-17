@@ -1,39 +1,21 @@
-<div class="card container">
-    <div class="card my-3">
-        <h1>Factura</h1>
-        <ul class="list-group">
-            <li class="list-group-item">{{invoice.id}}</li>
-            <li class="list-group-item">{{invoice.name}}</li>
-        </ul>
-    </div>
-<div class="row my-3">
-    <div class="col">
-        <div class="card">
-            <h2>Detalle del cliente</h2>
-            <ul class="list-group">
-                <li class="list-group-item active">{{invoice.client.name}} {{invoice.client.lastName}}</li>
-                <li class="list-group-item">{{invoice.client.address.country}}</li>
-                <li class="list-group-item">{{invoice.client.address.city}}</li>
-                <li class="list-group-item">{{invoice.client.address.street}} {{invoice.client.address.number}}</li>
-            </ul>
-        </div>
-    </div>
+<div class="card  container">
+    <invoice-view [id]="invoice.id" [name]="invoice.name"></invoice-view>
 
+    
+    
+        
+    
+<div class="row mt-4 mb-4">
+    <client-view class="col" [client]="invoice.client"></client-view >
 
-    <div class="col">
-        <div class="card">
-            <h2>Detalle de la empresa</h2>
-            <ul class="list-group">
-                <li class="list-group-item active">{{invoice.company.name}}</li>
-                <li class="list-group-item">{{invoice.company.fiscalNumber}}</li>
-            </ul>
-        </div>
-    </div>
+    <company-view class="col" [company]="invoice.company"></company-view >
 </div>
+    
     <div>
     <h4>Detalle de la factura</h4>
     <table class="table table-hover table-striped">
-            <thead class="table-dark">
+            <thead class="table-dark
+            ">
                 <tr>
                     <th>id</th>
                     <th>product</th>
@@ -53,4 +35,5 @@
             </tbody>
         </table>
     </div>
+
 </div>

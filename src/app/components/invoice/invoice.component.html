@@ -1,32 +1,39 @@
-<div class="container my-3c">
-    <h1>Ejemplo de factura</h1>
-    <ul>
-        <li>{{invoice.id}}</li>
-        <li>{{invoice.name}}</li>
-    </ul>
-
-    <div>
-        <h2>Detalle del cliente</h2>
-        <ul>
-            <li>{{invoice.client.name}} {{invoice.client.lastName}}</li>
-            <li>{{invoice.client.address.country}}</li>
-            <li>{{invoice.client.address.city}}</li>
-            <li>{{invoice.client.address.street}} {{invoice.client.address.number}}</li>
+<div class="card container">
+    <div class="card my-3">
+        <h1>Factura</h1>
+        <ul class="list-group">
+            <li class="list-group-item">{{invoice.id}}</li>
+            <li class="list-group-item">{{invoice.name}}</li>
         </ul>
     </div>
-
-    <div>
-        <h2>Detalle de la empresa</h2>
-        <ul>
-            <li>{{invoice.company.name}}</li>
-            <li>{{invoice.company.fiscalNumber}}</li>
-        </ul>
+<div class="row my-3">
+    <div class="col">
+        <div class="card">
+            <h2>Detalle del cliente</h2>
+            <ul class="list-group">
+                <li class="list-group-item active">{{invoice.client.name}} {{invoice.client.lastName}}</li>
+                <li class="list-group-item">{{invoice.client.address.country}}</li>
+                <li class="list-group-item">{{invoice.client.address.city}}</li>
+                <li class="list-group-item">{{invoice.client.address.street}} {{invoice.client.address.number}}</li>
+            </ul>
+        </div>
     </div>
-    
+
+
+    <div class="col">
+        <div class="card">
+            <h2>Detalle de la empresa</h2>
+            <ul class="list-group">
+                <li class="list-group-item active">{{invoice.company.name}}</li>
+                <li class="list-group-item">{{invoice.company.fiscalNumber}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
     <div>
-        <h4>Detalle de la factura</h4>
-        <table>
-            <thead>
+    <h4>Detalle de la factura</h4>
+    <table class="table table-hover table-striped">
+            <thead class="table-dark">
                 <tr>
                     <th>id</th>
                     <th>product</th>
@@ -36,10 +43,12 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of invoice.items">
-                    <td>{{item.id}}</td>
-                    <td>{{item.product}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{item.quiantity}}</td>
+                    <td> {{item.id}}</td>
+                    <td> {{item.product}}</td>
+                    <td> {{item.price}}</td>
+                    <td> {{item.quiantity}}</td>
+
+                    
                 </tr>
             </tbody>
         </table>

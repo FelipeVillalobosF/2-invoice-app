@@ -4,12 +4,18 @@ import { Invoice } from 'src/app/models/invoice';
 import { ClientViewComponent } from '../client-view/client-view.component';
 import { InvoiceViewComponent } from '../invoice-view/invoice-view.component';
 import { CompanyViewComponent } from '../company-view/company-view.component';
-import { NgForOf} from '@angular/common';
+import { TotalComponent } from '../total/total.component';
+import { ListItemsComponent } from "../list-items/list-items.component";
 
 @Component({
   selector: 'app-invoice',
   standalone: true,
-  imports: [NgForOf, InvoiceViewComponent, ClientViewComponent, CompanyViewComponent,],
+  imports: [
+    InvoiceViewComponent,
+    ClientViewComponent,
+    CompanyViewComponent,
+    TotalComponent, 
+    ListItemsComponent],
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css']
 })
@@ -22,5 +28,9 @@ constructor(private service: InvoiceService){}
 
   ngOnInit(): void {
     this.invoice = this.service.getInvoice();
+  }
+
+  onRemove(id: number){
+    this.invoice = this.service.remove(id);
   }
 }

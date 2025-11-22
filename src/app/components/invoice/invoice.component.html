@@ -1,20 +1,20 @@
-<div class="card  container">
-    <invoice-view [id]="invoice.id" [name]="invoice.name"></invoice-view>
+<div class="card container">
+  <invoice-view [id]="invoice.id" [name]="invoice.name"></invoice-view>
+
+  <div class="row mt-4 mb-4">
+    <client-view class="col" [client]="invoice.client"></client-view>
+
+    <company-view class="col" [company]="invoice.company"></company-view>
+  </div>
+
+  <div>
+    <list-items [items]="invoice.items" (removeEvent)="onRemove($event)" />
 
     
-    
-        
-    
-<div class="row mt-4 mb-4">
-    <client-view class="col" [client]="invoice.client"></client-view >
+  </div>
+  <total [total]="invoice.total"></total>
 
-    <company-view class="col" [company]="invoice.company"></company-view >
-</div>
-    
-    <div>
-        <list-items [items]="invoice.items" (removeEvent)="onRemove($event)"/>
-
-        <total [total]="invoice.total"></total>
-    </div>
-
+  <div>
+    <form-items (newItemEvent)="addItem($event)"/>
+  </div>
 </div>

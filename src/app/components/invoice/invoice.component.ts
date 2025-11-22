@@ -6,6 +6,8 @@ import { InvoiceViewComponent } from '../invoice-view/invoice-view.component';
 import { CompanyViewComponent } from '../company-view/company-view.component';
 import { TotalComponent } from '../total/total.component';
 import { ListItemsComponent } from "../list-items/list-items.component";
+import { FormItemsComponent } from '../form-items/form-items.component';
+import { Items } from 'src/app/models/items';
 
 @Component({
   selector: 'app-invoice',
@@ -15,7 +17,8 @@ import { ListItemsComponent } from "../list-items/list-items.component";
     ClientViewComponent,
     CompanyViewComponent,
     TotalComponent, 
-    ListItemsComponent],
+    ListItemsComponent,
+    FormItemsComponent,],
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css']
 })
@@ -32,5 +35,9 @@ constructor(private service: InvoiceService){}
 
   onRemove(id: number){
     this.invoice = this.service.remove(id);
+  }
+
+  addItem(item: Items){
+    this.invoice = this.service.save(item);
   }
 }

@@ -33,8 +33,8 @@ constructor(private service: InvoiceService){}
     this.invoice = this.service.getInvoice();
   }
 
-  onRemove(id: number){
-    this.invoice = this.service.remove(id);
+  onRemove(id: number){ //Método para manejar las eliminaciones
+    this.invoice = this.service.remove(id); //Actualiza la factura llamando al servicio remove pasandole la id del ítem a eliminar
   }
 
   addItem(item: Items){

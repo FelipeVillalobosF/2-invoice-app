@@ -11,11 +11,11 @@ import { Items } from 'src/app/models/items';
   ]
 })
 export class RowItemComponent {
-  @Input() item!: Items;
+  @Input() item!: Items; //Recibir el ítem de la clase padre
 
-  @Output() removeEventt = new EventEmitter();
+  @Output() removeEventt = new EventEmitter(); // Emisor de eventos para eliminar un ítem a la clase padre
 
-  onRemove(id: number):void{
-    this.removeEventt.emit(id);
+  onRemove(id: number):void{ //Método para mejar las eliminaciones 
+    this.removeEventt.emit(id); // Emitir el ID del ítem a la clase padre
   }
 }

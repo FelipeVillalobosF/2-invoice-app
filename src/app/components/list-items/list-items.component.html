@@ -14,7 +14,7 @@
             <tbody>
                 
                     
-            <tr row-item *ngFor="let item of items" [item]="item" (removeEventt)="onRemove($event)"></tr>
+            <tr row-item *ngFor="let item of items" [item]="item" (removeEventt)="onRemove($event)"></tr> <!-- Recibe el evento removeEmitter de la clase hijo el cual contiene la id -->>
                     
                 
             </tbody>

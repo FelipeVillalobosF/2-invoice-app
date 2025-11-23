@@ -13,9 +13,11 @@ import { RowItemComponent } from '../row-item/row-item.component';
   templateUrl: './list-items.component.html'
 })
 export class ListItemsComponent {
-  @Input() items: Items[] = [];
-  @Output() removeEvent = new EventEmitter();
-  onRemove(id: number): void {
-    this.removeEvent.emit(id);
+
+  @Input() items: Items[] = []; // Recibir la lista de ítems de la clase padre
+  @Output() removeEvent = new EventEmitter(); // Emisor de eventos para eliminar un ítem a la clase padre
+
+  onRemove(id: number): void { //Método para manejar las eliminacionesd (se le da una variable de tipo number para manejar el evento recibido)
+    this.removeEvent.emit(id); // Emitir el ID del ítem a la clase padre
   }
 }

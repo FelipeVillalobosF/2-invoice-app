@@ -8,7 +8,7 @@
   </div>
 
   <div>
-    <list-items [items]="invoice.items" (removeEvent)="onRemove($event)" />
+    <list-items [items]="invoice.items" (removeEvent)="onRemove($event)" /> <!-- Recibe el ecento OnRevome de la clase hijo que contien la información de la id -->>
 
     
   </div>
@@ -16,5 +16,6 @@
 
   <div>
     <form-items (newItemEvent)="addItem($event)"/>
+
   </div>
 </div>
